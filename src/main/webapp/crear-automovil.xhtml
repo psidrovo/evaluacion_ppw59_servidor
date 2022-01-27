@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+
+	<!--f:metadata>
+		<f:viewParam name="id" value="#{AutomovilesBean.placa}"></f:viewParam>
+		<f:viewAction action="#{AutomovilesBean.loadDatos()}"></f:viewAction>
+	</f:metadata-->
+
+
+</h:head>
+
+<ui:composition template="blank-page.xhtml">
+	<ui:define name="title">
+        Crear Auto 
+    </ui:define>
+	<ui:define name="content">
+
+
+		<h:form class="form-group">
+
+			<div class="form-group">
+				<label for="exampleInputName1">Placa</label>
+				<h:inputText value="#{AutomovilesBean.newAutomovil.placa}"
+					class="form-control" id="exampleInputName1" />
+			</div>
+			<div class="form-group">
+				<label for="exampleInputName2">Marca</label>
+				<h:inputText value="#{AutomovilesBean.newAutomovil.marca}"
+					class="form-control" id="exampleInputName2" />
+			</div>
+			<div class="form-group">
+				<label for="exampleInputName3">Color</label>
+				<h:inputText value="#{AutomovilesBean.newAutomovil.color}"
+					class="form-control" id="exampleInputName3" />
+			</div>
+			<div class="form-group">
+				<label for="exampleInputName4">Año</label>
+				<h:inputText value="#{AutomovilesBean.newAutomovil.anio}"
+					class="form-control" id="exampleInputName4" />
+			</div>
+
+			<h:commandButton action="#{AutomovilesBean.guardar()}" value="Guardar" class="btn btn-primary mr-2"/>
+			<h:commandButton action="listado-automovil" value="Cancelar" class="btn btn-light">
+			</h:commandButton>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

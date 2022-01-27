@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="blank-page.xhtml">
+	<ui:define name="title">
+        Listar
+    </ui:define>
+	<ui:define name="content">
+		<h:form>
+			<h:commandButton action="#{automovilesBean.buscarPorNombre()}"
+				value="Buscar Automovil" />
+		</h:form>
+		<h:dataTable value="#{automovilesBean.automoviles}" var="a" class="table table-striped" border="3">
+			<h:column>
+				<f:facet name="header">Placa</f:facet>
+				#{a.placa}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Marca</f:facet>
+				#{a.marca}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Color</f:facet>
+				#{a.color}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Año</f:facet>
+				#{a.anio}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Acciones</f:facet>
+
+				<h:form>
+					<h:commandButton action="#{clientesBean.editarCliente(c.cedula)}"
+						value="Editar" />
+				</h:form>
+			</h:column>
+		</h:dataTable>
+
+		<h:form>
+			<h:commandButton action="crear-automovil" value="Regresar" />
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>
